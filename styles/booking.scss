@@ -4,12 +4,30 @@
   display: flex;
   align-items: center;
   padding: 80px 0;
+  // display: none;
+
+  @media (max-width: 1024px) {
+    padding: 60px 0;
+  }
+
+  @media (max-width: 660px) {
+    padding: 30px 0 40px;
+  }
 
   // .booking__container
   &__container {
     max-width: 1440px;
+    width: 100%;
     padding: 0 80px;
     margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      padding: 0 60px;
+    }
+
+    @media (max-width: 660px) {
+      padding: 0 16px;
+    }
   }
 
   // .booking__title
@@ -17,7 +35,17 @@
     font-size: 46px;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: calc(50px / 46px * 1em);
+    margin-bottom: 50px;
+
+    @media (max-width: 1024px) {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 660px) {
+      font-size: 24px;
+      margin-bottom: 32px;
+    }
   }
 
   // .booking__form
@@ -28,15 +56,33 @@
   &__fieldset {
     // .booking__fieldset_user-info
     &_user-info {
-      &:not(:last-child) {
-        margin-bottom: 50px;
+      margin-bottom: 50px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 1024px) {
+        margin-bottom: 40px;
+      }
+
+      @media (max-width: 660px) {
+        margin-bottom: 32px;
       }
     }
 
     // .booking__fieldset_comedians
     &_comedians {
-      &:not(:last-child) {
-        margin-bottom: 122px;
+      margin-bottom: 122px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 1024px) {
+        margin-bottom: 82px;
+      }
+
+      @media (max-width: 660px) {
+        margin-bottom: 32px;
       }
     }
   }
@@ -52,11 +98,14 @@
   &__inputs-group {
     display: flex;
     gap: 8px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   // .booking__input
   &__input {
-    flex-basis: 380px;
     display: block;
     max-width: 380px;
     width: 100%;
@@ -65,6 +114,11 @@
     border-radius: 8px;
     border: 1px solid transparent;
     outline: none;
+    background-color: #fff;
+
+    @media (max-width: 768px) {
+      max-width: none;
+    }
 
     &:focus {
       border-color: #bcbcbc;
@@ -72,6 +126,10 @@
 
     &:focus-visible {
       border-color: #bcbcbc;
+    }
+
+    &::placeholder {
+      color: #bababa;
     }
 
     // .booking__input_fullname
@@ -98,6 +156,10 @@
   &__comedian {
     display: flex;
     align-items: center;
+
+    @media (max-width: 660px) {
+      flex-wrap: wrap;
+    }
   }
 
   // .booking__select
@@ -105,23 +167,39 @@
     padding: 10px 16px;
     border-radius: 8px;
     border: 0;
+    background-color: #fff;
     margin-right: 8px;
 
-    &[name='comedian'] {
+    &[name="comedian"] {
       flex-basis: 380px;
     }
 
-    &[name='time'] {
+    &[name="time"] {
       flex-basis: 183px;
       margin-right: 18px;
+    }
+
+    @media (max-width: 660px) {
+      &[name="comedian"] {
+        flex-basis: auto;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 8px;
+      }
+
+      &[name="time"] {
+        margin-right: auto;
+      }
     }
   }
 
   // .booking__hall-btn
   &__hall-btn {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
   }
 
   // .booking__button

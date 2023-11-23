@@ -7,17 +7,32 @@
   justify-content: center;
   color: #fff;
   background-color: #1a1a1a;
-  background-image: url('../img/bg.jpg');
+  background-image: url("../img/bg.jpg");
   background-size: cover;
   background-position: center;
+  padding: 80px 30px;
   display: none;  //todo: Потом убрать
+
+  @media (max-width: 660px) {
+    padding: 80px 12px 60px;
+  }
 
   // .event__title
   &__title {
     font-size: 100px;
     font-weight: 800;
     line-height: 120%;
+    text-align: center;
     margin-bottom: calc(47px / 100px * 1em);
+
+    @media (max-width: 1024px) {
+      font-size: 70px;
+      margin-bottom: calc(40px / 70px * 1em);
+    }
+    @media (max-width: 660px) {
+      font-size: 38px;
+      margin-bottom: 7px;
+    }
   }
 
   // .event__info
@@ -25,8 +40,22 @@
     display: flex;
     gap: 80px;
     font-size: 30px;
-    &:not(:last-child) {
-      margin-bottom: 62px;
+    margin-bottom: 62px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1024px) {
+      gap: 50px;
+      font-size: 24px;
+      margin-bottom: 42px;
+    }
+
+    @media (max-width: 660px) {
+      display: grid;
+      grid-template-columns: 123px 157px;
+      gap: 10px;
+      margin-bottom: auto;
     }
   }
 
@@ -55,6 +84,10 @@
     font-weight: 800;
     line-height: 120%;
     margin-right: calc(10px / 80px * 1em);
+
+    @media (max-width: 1024px) {
+      font-size: 50px;
+    }
   }
 
   // .event__button
@@ -64,6 +97,11 @@
       color: #1a1a1a;
       font-size: 24px;
       margin-bottom: calc(24px / 24px * 1em);
+
+      @media (max-width: 1024px) {
+        font-size: 18px;
+        margin-bottom: calc(20px / 18px * 1em);
+      }
     }
 
     // .event__button_edit
@@ -74,7 +112,7 @@
       transition: color 0.2s;
 
       &:hover {
-        color: #FFC119;
+        color: #ffc119;
       }
     }
   }

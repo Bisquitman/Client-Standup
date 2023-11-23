@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'Onest', sans-serif;
+  font-family: "Onest", sans-serif;
   font-size: 18px;
   line-height: 1.4;
   color: #1a1a1a;
@@ -130,8 +130,8 @@ iframe {
   }
 
   &:disabled {
-    color: #1A1A1A;
-    background-color: #BABABA;
+    color: #1a1a1a;
+    background-color: #bababa;
     pointer-events: none;
     user-select: none;
   }
