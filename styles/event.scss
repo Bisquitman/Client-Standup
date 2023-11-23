@@ -1,0 +1,81 @@
+.event {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #1a1a1a;
+  background-image: url('../img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: none;  //todo: Потом убрать
+
+  // .event__title
+  &__title {
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 120%;
+    margin-bottom: calc(47px / 100px * 1em);
+  }
+
+  // .event__info
+  &__info {
+    display: flex;
+    gap: 80px;
+    font-size: 30px;
+    &:not(:last-child) {
+      margin-bottom: 62px;
+    }
+  }
+
+  // .event__info-item
+  &__info-item {
+    // .event__info-item_day
+    &_day {
+    }
+
+    // .event__info-item_hall
+    &_hall {
+    }
+
+    // .event__info-item_duration
+    &_duration {
+    }
+
+    // .event__info-item_comedians
+    &_comedians {
+    }
+  }
+
+  // .event__info-number
+  &__info-number {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 120%;
+    margin-right: calc(10px / 80px * 1em);
+  }
+
+  // .event__button
+  &__button {
+    // .event__button_reserve
+    &_reserve {
+      color: #1a1a1a;
+      font-size: 24px;
+      margin-bottom: calc(24px / 24px * 1em);
+    }
+
+    // .event__button_edit
+    &_edit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #FFC119;
+      }
+    }
+  }
+}
