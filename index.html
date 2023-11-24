@@ -6,15 +6,15 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preload" href="./fonts/onest-v5-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./fonts/onest-v5-cyrillic_latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/onest-v5-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/onest-v5-cyrillic_latin-800.woff2" as="font" type="font/woff2" crossorigin>
 
   <title>Standup Party Booking</title>
   <script type="module" src="/main.js"></script>
 </head>
 
 <body>
-  <section class="event">
+  <section class="event" id="event">
     <h1 class="event__title">StandUp Party</h1>
 
     <div class="event__info">
@@ -36,7 +36,7 @@
     </button>
   </section>
 
-  <section class="booking">
+  <section class="booking" id="booking">
     <div class="booking__container">
       <h2 class="booking__title">Забронируйте место в зале</h2>
 
@@ -58,48 +58,7 @@
           <legend class="booking__legend">Выберите комика</legend>
 
           <ul class="booking__comedians-list">
-            <li class="booking__comedian">
-              <select class="booking__select" name="comedian">
-                <option value="" disabled selected>Выбрать комика</option>
-                <option value="1">Юлия Ахмедова</option>
-                <option value="2">Слава Комиссаренко</option>
-              </select>
 
-              <select class="booking__select" name="time">
-                <option value="" disabled selected>Время</option>
-                <option value="20:00">20:00</option>
-                <option value="22:00">22:00</option>
-              </select>
-
-              <button class="booking__hall-btn" type="button">
-                Зал 1
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M9 3.5H3V9.5H5V5.5H9V3.5ZM3 21.5V15.5H5V19.5H9V21.5H3ZM15 3.5V5.5H19V9.5H21V3.5H15ZM19 15.5H21V21.5H15V19.5H19V15.5ZM7 7.5H11V11.5H7V7.5ZM7 13.5H11V17.5H7V13.5ZM17 7.5H13V11.5H17V7.5ZM13 13.5H17V17.5H13V13.5Z"
-                    fill="currentColor" />
-                </svg>
-              </button>
-            </li>
-            <li class="booking__comedian">
-              <select class="booking__select" name="comedian">
-                <option value="1">Юлия Ахмедова</option>
-                <option value="2">Слава Комиссаренко</option>
-              </select>
-
-              <select class="booking__select" name="time">
-                <option value="20:00">20:00</option>
-                <option value="22:00">22:00</option>
-              </select>
-
-              <button class="booking__hall-btn" type="button">
-                Зал 1
-                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M9 3.5H3V9.5H5V5.5H9V3.5ZM3 21.5V15.5H5V19.5H9V21.5H3ZM15 3.5V5.5H19V9.5H21V3.5H15ZM19 15.5H21V21.5H15V19.5H19V15.5ZM7 7.5H11V11.5H7V7.5ZM7 13.5H11V17.5H7V13.5ZM17 7.5H13V11.5H17V7.5ZM13 13.5H17V17.5H13V13.5Z"
-                    fill="currentColor" />
-                </svg>
-              </button>
-            </li>
           </ul>
         </fieldset>
 

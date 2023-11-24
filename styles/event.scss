@@ -11,9 +11,8 @@
   background-size: cover;
   background-position: center;
   padding: 80px 30px;
-  display: none;  //todo: Потом убрать
 
-  @media (max-width: 660px) {
+  @media (max-width: 680px) {
     padding: 80px 12px 60px;
   }
 
@@ -29,7 +28,7 @@
       font-size: 70px;
       margin-bottom: calc(40px / 70px * 1em);
     }
-    @media (max-width: 660px) {
+    @media (max-width: 680px) {
       font-size: 38px;
       margin-bottom: 7px;
     }
@@ -51,9 +50,10 @@
       margin-bottom: 42px;
     }
 
-    @media (max-width: 660px) {
+    @media (max-width: 680px) {
       display: grid;
-      grid-template-columns: 123px 157px;
+      // grid-template-columns: 123px 157px;
+      grid-template-columns: max-content max-content;
       gap: 10px;
       margin-bottom: auto;
     }

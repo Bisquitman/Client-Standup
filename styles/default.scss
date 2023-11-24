@@ -71,6 +71,46 @@ fieldset {
   border: 0;
 }
 
+.ts-dropdown,
+.ts-control,
+.ts-control input {
+  font-size: 18px;
+  line-height: 1.4;
+  border-radius: 8px;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 16px;
+}
+.ts-dropdown {
+  margin-top: 1px;
+  border-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-left: 0;
+  padding-right: 0;
+
+  .active {
+    background-color: #fafafa;
+  }
+}
+.ts-wrapper.single .ts-control {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: #fff;
+}
+.ts-wrapper.single .ts-control::after {
+  border-color: #1a1a1a transparent transparent transparent;
+}
+.ts-wrapper.single.dropdown-active .ts-control::after {
+  border-color: transparent transparent #1a1a1a transparent;
+}
+.ts-dropdown .option,
+.ts-dropdown .optgroup-header,
+.ts-dropdown .no-results,
+.ts-dropdown .create {
+  padding: 5px 16px;
+}
+
 iframe {
   border: none;
 }
