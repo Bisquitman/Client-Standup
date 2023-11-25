@@ -117,10 +117,12 @@
     background-color: #fff;
     transition: background-color 0.2s;
 
+    // .booking__input_valid
     &_valid {
       border-color: #00992b;
     }
 
+    // .booking__input_invalid
     &_invalid {
       border-color: #900;
     }

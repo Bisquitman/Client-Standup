@@ -1,14 +1,20 @@
 import "./style.scss";
 import TomSelect from "tom-select";
 import { scrollIntoView } from "seamless-scroll-polyfill";
+import { Notification } from "./scripts/notification";
+import Inputmask from "inputmask";
+import JustValidate from "just-validate";
 
 // const API_URL = "http://192.168.1.2:8080";
 const API_URL = "https://full-lively-animal.glitch.me";
 const MAX_COMEDIANS = 6;
 
+const notification = Notification.getInstance();
+
 const bookingComediansList = document.querySelector(".booking__comedians-list");
 const bookingSection = document.getElementById("booking");
 const btnReserve = document.querySelector(".event__button_reserve");
+const bookingForm = document.querySelector(".booking__form");
 
 const declOfNum = (n, titles) =>
   titles[n % 10 === 1 && n % 100 !== 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2];
@@ -112,11 +118,6 @@ const getComedians = async () => {
 };
 
 const init = async () => {
-  btnReserve.addEventListener("click", (e) => {
-    e.preventDefault();
-    scrollIntoView(bookingSection, { behavior: "smooth", block: "start", inline: "start" });
-  });
-  
   const countComedians = document.querySelector(".event__info-item_comedians");
 
   countComedians.innerHTML = `<span class="event__info-number">0</span>`;
@@ -131,5 +132,90 @@ const init = async () => {
   const comedianBlock = createComedianBlock(comedians);
 
   bookingComediansList.append(comedianBlock);
+
+  btnReserve.addEventListener("click", (e) => {
+    e.preventDefault();
+    scrollIntoView(bookingSection, { behavior: "smooth", block: "start", inline: "start" });
+  });
+
+  const validateBookingForm = new JustValidate(bookingForm, {
+    errorFieldCssClass: "booking__input_invalid",
+    successFieldCssClass: "booking__input_valid",
+  });
+  const bookingInputPhone = document.querySelector(".booking__input_phone");
+  const bookingInputTicket = document.querySelector(".booking__input_ticket");
+  new Inputmask("+375(99)-999-99-99").mask(bookingInputPhone);
+  new Inputmask("99999999").mask(bookingInputTicket);
+
+  validateBookingForm
+    .addField(".booking__input_fullname", [
+      {
+        rule: "required",
+        errorMessage: "Заполните поле «Имя»",
+      },
+    ])
+    .addField(".booking__input_phone", [
+      {
+        rule: "required",
+        errorMessage: "Заполните поле «Телефон»",
+      },
+      {
+        validator() {
+          const phoneValue = bookingInputPhone.inputmask.unmaskedvalue();
+          return phoneValue.length === 9 && !!Number(phoneValue);
+        },
+        errorMessage: "Некорректный номер телефона",
+      },
+    ])
+    .addField(".booking__input_ticket", [
+      {
+        rule: "required",
+        errorMessage: "Заполните поле «Номер билета»",
+      },
+      {
+        validator() {
+          const ticketValue = bookingInputTicket.inputmask.unmaskedvalue();
+          return ticketValue.length === 8 && !!Number(ticketValue);
+        },
+        errorMessage: "Неверный номер билета",
+      },
+    ])
+    .onFail((fields) => {
+      let errorMessage = "";
+      for (const key in fields) {
+        if (!Object.hasOwnProperty.call(fields, key)) {
+          continue;
+        }
+        const element = fields[key];
+        if (!element.isValid) {
+          errorMessage += `${element.errorMessage},<br>`;
+        }
+      }
+      notification.show(errorMessage.slice(0, -5), false);
+    });
+
+  bookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = { booking: [] };
+    const times = new Set();
+
+    new FormData(bookingForm).forEach((value, field) => {
+      if (field === "booking") {
+        const [comedian, time] = value.split(",");
+
+        if (comedian && time) {
+          data.booking?.push({ comedian, time });
+          times.add(time);
+        }
+      } else {
+        data[field] = value;
+      }
+
+      if (times.size !== data.booking.length) {
+        notification.show("Нельзя быть в одно время в разных местах", false);
+        // notification -> 'Нельзя быть в одно время в разных местах'
+      }
+    });
+  });
 };
 init();
