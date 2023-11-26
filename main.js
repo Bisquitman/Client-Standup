@@ -1,7 +1,7 @@
 import "./style.scss";
 import TomSelect from "tom-select";
 import { scrollIntoView } from "seamless-scroll-polyfill";
-import { Notification } from "./scripts/notification";
+import { Notification } from "./scripts/Notification.js";
 import Inputmask from "inputmask";
 import JustValidate from "just-validate";
 
@@ -25,7 +25,6 @@ const createComedianBlock = (comedians) => {
 
   const bookingSelectComedian = document.createElement("select");
   bookingSelectComedian.className = "booking__select booking__select_comedian";
-  bookingSelectComedian.id = "select-comedian";
 
   const bookingSelectTime = document.createElement("select");
   bookingSelectTime.className = "booking__select booking__select_time";
