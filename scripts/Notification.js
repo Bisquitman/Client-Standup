@@ -41,13 +41,13 @@ export class Notification {
     return new Promise((resolve) => {
       if (show) {
         requestAnimationFrame(() => {
-          notification.classList.add('notification_show');
+          notification.classList.add("notification_show");
           resolve();
         });
       } else {
-        notification.classList.remove('notification_show');
+        notification.classList.remove("notification_show");
         setTimeout(resolve, 500);
       }
     });
-  };
+  }
 }

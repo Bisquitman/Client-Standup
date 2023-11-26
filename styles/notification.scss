@@ -2,7 +2,7 @@
   position: fixed;
   right: 50px;
   bottom: 50px;
-  max-width: 332px;
+  max-width: 664px;
   color: #fff;
   font-size: 30px;
   font-weight: 800;
@@ -17,7 +17,7 @@
   z-index: 999;
 
   @media (max-width: 1024px) {
-    max-width: 287px;
+    max-width: 574px;
     font-size: 24px;
     bottom: 40px;
     right: 40px;
@@ -29,7 +29,7 @@
   }
 
   @media (max-width: 680px) {
-    max-width: 215px;
+    max-width: 430px;
     bottom: 16px;
     right: 16px;
     font-size: 18px;
