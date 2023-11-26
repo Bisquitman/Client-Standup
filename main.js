@@ -4,6 +4,9 @@ import { getComedians } from "./scripts/api.js";
 import { declOfNum } from "./scripts/helpers.js";
 import { initForm } from "./scripts/form.js";
 import { createComedianBlock } from "./scripts/comedians.js";
+import {preload} from "./scripts/preloader.js";
+
+preload.init();
 
 const bookingSection = document.getElementById("booking");
 const btnReserve = document.querySelector(".event__button_reserve");
@@ -20,8 +23,8 @@ const init = async () => {
     scrollIntoView(bookingSection, { behavior: "smooth", block: "start", inline: "start" });
   });
 
-  countComedians.innerHTML = `<span class="event__info-number">14</span>комиков`;
-  // !todo Вставить прелоадер
+  preload.add(document.body);
+
   const comedians = await getComedians();
   console.log("comedians: ", comedians);
   initForm(bookingForm, bookingInputPhone, bookingInputTicket);
@@ -36,6 +39,6 @@ const init = async () => {
     bookingComediansList.append(comedianBlock);
   }
 
-  // !todo Убрать прелоадер
+  preload.remove(document.body);
 };
 init();
