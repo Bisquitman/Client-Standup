@@ -7,13 +7,28 @@
   justify-content: center;
   color: #fff;
   background-color: #1a1a1a;
-  background-image: url("../img/bg.jpg");
+  background-image: url('../img/bg.jpg');
   background-size: cover;
   background-position: center;
   padding: 80px 30px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s, visibility 0.5s;
 
   @media (max-width: 680px) {
     padding: 80px 12px 60px;
+  }
+
+  // .event_hidden
+  &_hidden {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+    .event__button {
+      display: none;
+    }
   }
 
   // .event__title
@@ -92,6 +107,15 @@
 
   // .event__button
   &__button {
+    opacity: 1;
+    visibility: visible;
+
+    // .event__button_hidden
+    &_hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
     // .event__button_reserve
     &_reserve {
       color: #1a1a1a;

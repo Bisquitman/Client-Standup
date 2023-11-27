@@ -20,7 +20,6 @@
     "inputmask": "^5.0.8",
     "just-validate": "^4.3.0",
     "normalize.css": "^8.0.1",
-    "seamless-scroll-polyfill": "^2.3.4",
     "tom-select": "^2.3.1"
   }
 }
