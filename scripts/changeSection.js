@@ -19,7 +19,7 @@ export const initChangeSection = (
     eventSection.classList.toggle('event_hidden');
     bookingSection.classList.toggle('booking_hidden');
 
-    if (!bookingSection.classList.contains) {
+    if (!bookingSection.classList.contains('booking_hidden')) {
       const comedianBlock = createComedianBlock(comedians, bookingComediansList);
       bookingComediansList.append(comedianBlock);
     }

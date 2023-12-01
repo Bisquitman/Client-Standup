@@ -60,10 +60,12 @@
   - "inputmask": "^5.0.8",
   - "just-validate": "^4.3.0",
   - "normalize.css": "^8.0.1",
-  - "seamless-scroll-polyfill": "^2.3.4",
+  - "qrcode": "^1.5.3",
   - "tom-select": "^2.3.1"
 
 ---
+
+<!--полезные ссылки-->
 
 ## Полезные ссылки
 
@@ -76,3 +78,6 @@
 - [https://tom-select.js.org/](https://tom-select.js.org/) - плагин для кастомизации select
 - [JustValidate](https://just-validate.dev/) - библиотека для валидации форм
 - [Inputmask](https://github.com/RobinHerbots/Inputmask) - маска ввода для инпутов
+- [QRCode](https://www.npmjs.com/package/qrcode)
+- [Glitch.com](https://glitch.com/) - хостинг для backend
+- [Vercel](https://vercel.com/) - хостинг для frontend

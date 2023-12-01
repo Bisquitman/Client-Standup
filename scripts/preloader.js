@@ -16,6 +16,8 @@ export const preload = {
     setTimeout(() => {
       this.elem.remove();
       container.style = '';
+      document.querySelector(".preload")?.remove();
+      document.head.querySelector("style#preloader")?.remove();
     }, 500);
   },
   init() {
